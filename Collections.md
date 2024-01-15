@@ -23,6 +23,7 @@ ArrayList được ưa dùng khi bạn muốn duyệt danh sách của bạn, ho
 #### Vector
 Vector là một collection ra đời khá sớm và nó đã trở nên khá lỗi thời.
 
+
 Vector về cơ bản giống như ArrayList, nhưng các phương thức Vector được đồng bộ hóa để đảm bảo an toàn cho luồng. Vì vậy hiệu suất sẽ giảm đáng kể so với ArrayList.
 
 Bạn có thể sử dụng ArrayList để thay cho Vector trong hầu hết các trường hợp, còn vấn đề về luồng, collection framework cũng cung cấp cho chúng ta một số method để làm việc với luồng.
@@ -83,6 +84,16 @@ Java 6, TreeMap triển khai NavigableMap.
 
 
 ## Queue Interface
+Queue Inteface được sử dụng để lưu trữ các phần tử được xử lý theo thứ tự FIFO (First In First Out). Tức là các phần tử không được đánh dấu bằng index hay key, phần tử nào được thêm vào trước sẽ đứng trước, phần tử nào được thêm vào sau sẽ đứng sau.
+
+Queue hỗ trợ tất cả những method của Collection. 
+
+**PriorityQueue** và **LinkedList** là 2 class implement Queue Interface, PriorityQueue được giới thiệu trong Java 5, **PriorityQueue** cho phép sắp xếp các phần tử theo thứ tự A-Z hoặc 1-9.
+
+
+
+
+
 
 
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/d53d4151-b60d-4cec-a056-7874d1862a10)
@@ -93,4 +104,13 @@ Java 6, TreeMap triển khai NavigableMap.
 Những class liên quan đến Map đều **không** implement Collection interface.
 
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/0a01351b-e420-4e39-8dc1-3e8b0b7b0673)
+
+# Sử dụng Collection Framewor
+Mục tiêu:
+- Viết code sử dụng Navigableset và NavigableMap.
+- Sử dụng `java.util.Comparator` và `java.lang.Comparable` để tùy chỉnh việc sắp xếp phần tử trong list và array.
+- Biết được ảnh hưởng của "natural ordering" trong các hàm sorting.
+
+Navigation Methods
+Tìm kiếm trong TreeSets và TreeMaps, Java 5 cung cấp 2 interface mới là NavigableSet và `java.util.NavigableMap` 
 
