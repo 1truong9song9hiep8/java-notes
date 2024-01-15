@@ -114,3 +114,12 @@ Mục tiêu:
 Navigation Methods
 Tìm kiếm trong TreeSets và TreeMaps, Java 5 cung cấp 2 interface mới là NavigableSet và `java.util.NavigableMap` 
 
+Backed collection
+Trong Java, Backed collection để chỉ những collection được liên kết với một collection khác, 2 collection này cùng chia sẻ chung nguồn dữ liệu, vì vậy bất cứ khi nào 1 trong 2 thay đổi thì cả 2 đều thay đổi.
+
+Một số class trong gói java.util hỗ trợ backed collection bao gồm: **Collections**, **Arrays**, **List**, và **Set**, trong các class này sẽ có một số method sinh ra backed collection từ collection gốc.
+
+Một số lưu ý: bởi vì 1 list tham chiếu đến list gốc, nếu như bạn thay đổi phàn tử trong list gốc mà phạm vi của nó vượt ngoài list mới thì list mới vẫn sẽ không thay đổi
+
+Khi thêm/xóa phần tử, list mới sẽ báo lỗi, vì vậy hãy cẩn thận khi sử dụng các hàm 
+
