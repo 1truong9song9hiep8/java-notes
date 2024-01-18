@@ -20,3 +20,6 @@ Tính đa hình được thể hiện qua kế thừa và override lại các ph
 
 Biến tham chiếu là những biến có kiểu là parent hoặc interface
 
+Static variable vs method
+Biến và hàm static được tạo khi class chứa nó được load vào JVM trước bất cứ instance nào được tạo, Biến và hàm static được dùng để lưu trữ dữ liệu mà có thể chia sẽ giữa các instance, nó không phụ thuộc vào instance của class
+một static method không thể truy cập vào một biến nonstatic
