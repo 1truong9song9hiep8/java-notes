@@ -47,6 +47,12 @@ Khi giá trị trong case lớn hơn trong swithc thì sao, ví dụ case 128 ch
 Giá trị trong case không được trùng nhau.
 
 Câu lệnh break trong switch-case
+Luồng thực thi của switch-case là các case sẽ được đánh giá từ trên xuống và nếu 1 case match thì mọi case dưới sẽ luôn match, chúng ta gọi đó là fall-through, để đảm bảo nó chỉ mattch với 1 case bạn phải đặt break sau mỗi casse
+
+default là option nó được sử dụng khi không có case nào hợp
+
+default không cần phải đặt cuôis của câu lệnh switch
+
 
 
 
