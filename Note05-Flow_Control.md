@@ -124,5 +124,36 @@ Vòng lặp for tăng cường được giới thiệu vào trong Java 6 , vòng
 biến phải được khai báo trong phần khởi tạo, không được khởi tạo bên ngoài
 list có thể dc khai báo trong : for (int x: new int[]{1, 2, 3, 4, 5});
 
+### Gán nhãn câu lệnh (Labeled statement)
+Gán nhãn câu lệnh cho phép đặt tên cho một câu lệnh hoặc một luồng điều khiển, giúp thao tác với luồng điều khiển thông qua nhãn gán.
+
+Labeled statement trong Java thường được dùng cho các luồng điều khiển `while` hoặc `for`. (tuy nhiên chúng không được khuyến khích sử dụng vì nó có thể làm cho mã trở nên khó hiểu và khó bảo trì.)
+```java
+// labeled statement trong while
+loop:
+while (true) {
+    // Thực hiện các công việc trong vòng lặp
+
+    if (someCondition) {
+        break loop; // Thoát khỏi vòng lặp khi someCondition được thỏa mãn
+    }
+}
+
+// labeld statement trong for
+outerLoop:
+for (int i = 0; i < 5; i++) {
+    innerLoop:
+    for (int j = 0; j < 3; j++) {
+        if (i == 2 && j == 1) {
+            break outerLoop; // Nhảy khỏi vòng lặp for bên ngoài
+        }
+        System.out.println("i: " + i + ", j: " + j);
+    }
+}
+
+```
+### Xử lý Exception
+Ngoại lệ là một sự kiện sảy ra mà chương trình không biết phải làm gì với nó, ví dụ chia một số cho 0, hoặc truy xuất đến một phần tử rỗng...
+### Bắt và xử lý Exception với `try-catch`
 
 
