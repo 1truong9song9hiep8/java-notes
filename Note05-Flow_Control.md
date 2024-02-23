@@ -153,7 +153,12 @@ for (int i = 0; i < 5; i++) {
 
 ```
 ### Xử lý Exception
-Ngoại lệ là một sự kiện sảy ra mà chương trình không biết phải làm gì với nó, ví dụ chia một số cho 0, hoặc truy xuất đến một phần tử rỗng...
+Ngoại lệ là một sự kiện sảy ra làm thay đổi luồng đi bình thường của chương trình, ví dụ chia một số cho 0, hoặc truy xuất đến một phần tử rỗng...
+
+Khi một ngoại lệ xảy ra, ta nói nó được `ném` ra, và lúc này Java sẽ tự động khởi tạo một đối tượng Exception, để bắt được đối tượng này, chúng ta phải sử dụng try-catch
 ### Bắt và xử lý Exception với `try-catch`
+Khối finally được dùng sau khối catch và nó sẽ luôn chạy bất kể có ngoại lệ xảy ra hay không. Ngay cả khi khối try có return thì khối finally vẫn chạy trước khi return.
+
+Khối finally là tùy chọn, và khối catch cũng là tùy chọn
 
 
