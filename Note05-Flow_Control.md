@@ -53,6 +53,76 @@ default là option nó được sử dụng khi không có case nào hợp
 
 default không cần phải đặt cuôis của câu lệnh switch
 
+## Vòng lặp
+### Vòng lặp while và `do-while`
+Vòng lặp while được dùng khi chúng ta không cần biết chính xác số lần lặp lại. Cú pháp của vòng lặp `while`.
+```java
+int x = 2;
+while(x == 2) {
+ System.out.println(x);
+ ++x;
+}
+```
+code trong do sẽ được thực hiện sau đó nó sẽ kiểm tra điều kiện while để quyết định có lặp lại hay không.
+```java
+do {
+ System.out.println("Inside loop");
+} while(false); // với câu lệnh do-while thì sau while phải có dấu ";"
+```
+### Vòng lặp `for`
+Vòng lặp for về sau được gọi là vòng lặp for cơ bản, bởi vì sau java 6 thì một vòng lặp for khác gọi là vòng lặp for tăng cường chuyên được dùng để duyệt mảng và colleciton.
+
+luồng đi của vòng lặp: khởi tạo biến > kiểm tra biến > thực thi mã > tăng hoặc giảm biến đếm.
+
+Vòng lặp for gồm 3 phần: phần khởi tạo biến đếm, phần điều kiện kết thúc và phần thay đổi giá trị biến đếm. Mỗi phần cách nhau bởi dấu ";".
+```java
+for (/*Initialization*/ ; /*Condition*/ ; /* Iteration */) {
+ /* loop body */
+}
+for (int i = 0; i<10; i++) {
+ System.out.println("i is " + i);
+}
+```
+Phần khai báo biến đếm: bạn có thể khởi tạo nhiều biến, cách nhau bởi dấu phẩy
+```java
+for (int x = 10, y = 3; y > 3; y++) { }
+```
+biến khởi tạo trong vòng lặp for có thể có bất kỳ kiểu dữ liệu nào mà Java hỗ trợ. 
+
+Phạm vi của biến chỉ nằm trong câu lệnh `for`
+
+- Phần kiểm tra điều kiện:
+  - Biểu thức trong for phải trả về boolean
+  - Biểu thức có thể phức tạp : `for (int x = 0; ((((x < 10) && (y-- > 2)) | x == 3)); x++) { }`
+  - Biến trong biểu thức không cần thiết phải khai báo trong phần khởi tạo của vòng lặp
+    ```java
+    int y = 0;
+    for (int x = 0;y > 5; x ++){ }
+    ```
+
+Phần lặp biến: 
+- phần lặp sẽ chạy sau phần thân của vòng lặp `for`.
+- `break`, `return` `System.exist()` được dùng để dừng vòng lặp theo mong muốn.
+- phần lặp biến la tùy chọn, bạn thậm chí đặt một câu lệnh khác cũng không xảy ra lỗi gì
+```java
+int b = 3;
+for (int a = 1; b != 1; System.out.println("iterate")) {
+ b = b - a;
+}
+```
+
+Lưu ý cả 3 phần đều là tùy chọn, mọi thứ đều không có lỗi khi không khai báo.
+```java
+for( ; ; ) {
+ System.out.println("Inside an endless loop");
+}
+```
+vòng lặp trên sẽ là vòng lặp vô hạn "x=+1" sẽ là vô hạn bởi phép này sẽ là phép gán cho 1 chứ không phải +=
+
+## Vòng lặp tăng cường
+Vòng lặp for tăng cường được giới thiệu vào trong Java 6 , vòng lặp tăng cường gồm 2 phần: phần khởi tạo và list.
+biến phải được khai báo trong phần khởi tạo, không được khởi tạo bên ngoài
+list có thể dc khai báo trong : for (int x: new int[]{1, 2, 3, 4, 5});
 
 
 
