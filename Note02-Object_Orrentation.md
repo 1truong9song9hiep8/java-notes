@@ -23,3 +23,30 @@ Biến tham chiếu là những biến có kiểu là parent hoặc interface
 Static variable vs method
 Biến và hàm static được tạo khi class chứa nó được load vào JVM trước bất cứ instance nào được tạo, Biến và hàm static được dùng để lưu trữ dữ liệu mà có thể chia sẽ giữa các instance, nó không phụ thuộc vào instance của class
 một static method không thể truy cập vào một biến nonstatic
+
+## Static
+### Biến và hàm static
+Một số đặc điểm của hàm static:
+- Biến static được các instance chia sẻ.
+- Có thể gọi trực tiếp mà không cần khởi tạo instance của class.
+- Hàm static chỉ có thể truy cập vào các static member, và không có quyền truy cập vào các non-static member.
+- Hàm static không thể được ghi đè
+
+## coupling vs cohesion
+coupling(sự khớp nối) và cohesion(tính liên kết) để chỉ mức độ liên kết, mức độ phụ thuộc lẫn nhau giữa các đối tượng trong OOP. Một ứng dụng được thiết kế OOP tốt là một ứng dụng mà sự khớp nối được tránh đồng thời tính liên kết dược tăng cường.
+
+### Tính khớp nối 
+Một class A chỉ biết những thứ mầ class B thể hiện qua interface thì đó la một kết nối lỏng lẻo (một thiết kế tốt), ví dụ:
+```java
+  class DoTaxes {
+        float rate;
+
+        float doColorado() {
+            SalesTaxRates str = new SalesTaxRates();
+            rate = str.salesRate; // ouch
+            // this should be a method call:
+            // rate = str.getSalesRate("CO");
+            // do stuff with rate
+        }
+    }
+```
