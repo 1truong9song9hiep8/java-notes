@@ -1,5 +1,5 @@
 # Java Note03: Phép Gán (Assigment) 121
-## Stack và Heap
+## Phần 01: Stack và Heap
 - Instance variables và objects được lưu trong vùng nhớ heap.
 - Local variables được lưu trong vùng nhớ stack.
   ưu ý: Các tên biến local lưu ở trong stack nhưng nó lại tham chiếu đến vùng nhớ ở trong heap. thông thường stack sẽ lưu trữ tên hàm và những tên biến trong nó, còn giá trị nằm trong heap
@@ -26,6 +26,20 @@ class Dog {
     }
 }
 ```
+## Phần 02: Literal Assigment và Variables
+
+### Toán tử gán (Assignment Operators)
+Toán tử gán `=` dùng để gán giá trị cho một biến trong Java
+
+#### Phạm vi của biến
+Mỗi biến có một phạm vi hoạt động khác nhau phụ thuộc vào nơi mà nó được khai báo. Thường sẽ được chia làm 4 phạm vi cơ bản:
+- Biến tĩnh: có phạm vi trong toàn class.
+- Biến instance: tồn tại từ lúc instance được khởi tạo cho đến khi đối tượng bị xóa.
+- Local variable: tồn tại khi method vẫn còn trong stack
+- Block variable: tồn tại khi vẫn còn trong block.
+
+#### Array
+Mảng(Array) trong Java là một 
 ## Quản lý bộ nhớ và tiến trình thu gom rác trong Java
 Java có một chương trình thu gom rác gọi là Bargare Collector, nó sẽ tự động chạy ngầm và tự động xóa những dữ liệu không được sử dụng trong bộ nhớ Heap.
 
