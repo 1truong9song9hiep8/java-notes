@@ -109,4 +109,33 @@ Các local variable có được phép gán access modifier không? Câu trả l
 - non-subclass khác gói: chỉ có public có thể thấy.
 
 NonAccess member modifier
+Final method: một method là final thì nó sẽ không được ghi đè khi kế thừa. các đối số trong method cũng có thể được dánh dấu là final, và giá trị của nó sẽ không thể thay đổi, nó hoạt động giống như local variable.
+
+abstract method: các method được đánh dấu là static thì không có phần thân hàm. Một abstract class thì có thể không chứa bất kì abstract method nào cả.
+
+bất kì class nào khi kế thừa từ một abstract class cũng sẽ phải override lại hết các abstract method, trừ khi class đó cũng là abstract
+
+
+một method không thể vừa abtract vừa final hay vừa abtract vừa private được. static method cũng không thể là static được.
+
+một hàm đánh dấu là synchronized thì nó chỉ được 1 luồng sử dụng trong 1 thời điểm, và nó chỉ app dụng với method, các biến không được phép gán 
+
+
+danh sách đối sô trong method: 
+
+argument: là khi bạn truyền giá trị
+paramater: là khi bạn khai báo hàm
+
+
+hàm tạo là hàm để tạo instance từ class, hàm tạo không khai báo kiểu trả về, có tên trùng với tên class, constructor có thể khai báo các access modifier nhung không được phép khai báo là tĩnh-final hoặc abstract
+
+khai báo biến:
+6 kiểu dữ liệu số đều là 8bit va bit đầu tiên sẽ quyết định nó là số âm hay dương
+
+![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/b5848035-6c59-49f1-9b0f-00dad2832140)
+
+với các biến referrence; bạn chỉ có thể gán các access modifier và final cho nó + transitient, các keyword còn lại là không được phép.
+một hàm static không thể truy cập vào các static class member
+
+
 
