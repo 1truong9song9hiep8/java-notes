@@ -1,6 +1,6 @@
 # JAVA NOTE04: OPERATORS
 Java cung cấp một bộ các toán tử để làm việc với biến bao gồm: Toán tử gán (), toán tử số học, toán tử quan hệ, toán tử logic, toán tử điều kiện
-## Toán tử gán
+## 1. Toán tử gán
 Trong Java thực tế có tận 11 kiểu toán tử gán nhưng chỉ có 4 loại thường được sử dụng (+=, -=, *=, và /=), và thứ tự ưu tiên của các toán tử cũng là một điều đáng lưu ý:
 ```java
 
@@ -44,5 +44,10 @@ instanceof cũng có thể dùng với null, và tất nhiên kết quả luôn 
 Việc cố gắng sử dụng `instanceof` cho hai đối tượng thuộc class khác nhau sẽ dẫn đến lỗi biên dịch.
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/e02bc00a-19ce-4f1c-ae98-01d24ccca884)
 
+## Toán tử số học
+Toán tử số học bao gồm: cộng(+), trừ(-), nhân(*), chia lấy phần nguyên(/), chia lấy phần dư(%).
 
+Các toán tử `*`, `/` có mức độ ưu tiên cao hơn `+` và `-`
+
+Toán tử `+` cũng có thể sử dụng để nối chuỗip
 
