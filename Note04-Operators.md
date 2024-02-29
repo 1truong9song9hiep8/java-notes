@@ -44,10 +44,48 @@ instanceof cũng có thể dùng với null, và tất nhiên kết quả luôn 
 Việc cố gắng sử dụng `instanceof` cho hai đối tượng thuộc class khác nhau sẽ dẫn đến lỗi biên dịch.
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/e02bc00a-19ce-4f1c-ae98-01d24ccca884)
 
-## Toán tử số học
+## 3. Toán tử số học
 Toán tử số học bao gồm: cộng(+), trừ(-), nhân(*), chia lấy phần nguyên(/), chia lấy phần dư(%).
 
 Các toán tử `*`, `/` có mức độ ưu tiên cao hơn `+` và `-`
 
-Toán tử `+` cũng có thể sử dụng để nối chuỗip
+Toán tử `+` cũng có thể sử dụng để nối chuỗi, hãy cẩn thận với toán tử `+` khi sử dụng cho nhiều số và chuỗi. nếu có ít nhất 1 trong 2 toán hạng là chuỗi thì sẽ là phép nối chuỗi
+```java
+String s = "123";
+s += "45";
+s += 67;
+System.out.println(s); // result 1234576
+```
+#### Toán tử `++` và `--`
+toán tử `++` và `--` có thê được đặt trước hoặc sau một số, khi đặt ở hậu tố, các số sẽ thực hiện tính toán mới tăng hoặc giảm đơn vị, còn khi ở vị trí tiền tố sẽ tăng-giảm đơn vị mới tính toán sau.
+```java
+int x = 2; int y = 3;
+if ((y == x++) | (x < ++y)) {
+ System.out.println();
+ }
+// trong if lúc này sẽ là nếu 3 == 2 hoặc 3 < 4
+```
+## 4. Toán Tử Điều Kiện (Conditional Operators)
+Toán tử điều kiện hay toán tử ba ngôi sẽ gán giá trị cho một biến dựa vào kết quả của biểu thức được trả về, biểu thức điều kiện luôn trả về đúng hoặc sai.
+
+Toán tử điều kiện có thể được lồng nhau
+```java
+int sizeOfYard = 10;
+int numOfPets = 3;
+String status = (numOfPets<4)? "Pet count OK"
+ :(sizeOfYard > 8)? "Pet limit on the edge"
+  :"too many pets";
+ System.out.println("Pet status is " + status);
+```
+## 5. Toán Tử Logic (Logical Operators)
+Có 6 toán tử logic (`&`, `!`, `|`, `&&`, `||`) tuy nhiên các toán tử (`&`, `|` và `^`) thường không được sử dụng và không có trong các bài kiểm tra nên chúng ta sẽ bỏ qua nó.
+
+Chúng ta sẽ tìm hiểu 3 toán tử còn lại là `!`, `&&` và `||`. Các toán tử này chỉ hoạt động với các toán hạng là boolean. 
+
+Một lưu ý khi khi sử dụng toán tử điều kiện trong câu lệnh if, nếu như vế đầu tiên thõa mãn điều kiện thì vế còn lại Java sẽ bỏ qua.
+```java
+int z = 5;
+if (++z > 5 || ++z > 6)
+ System.out.println(z); // Kết quả sẽ là 6, bởi vì vế "++z > 5" đã thõa mãn điều kiện nên vế "++z > 6" sẽ không được chạy
+```
 
