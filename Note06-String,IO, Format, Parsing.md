@@ -103,7 +103,12 @@ Khi làm việc với ngày tháng và con số, ta sẽ sử dụng nhiều l�
 ## 4. Format
 
 ### Token Hóa
-Token hóa là tiến trình lấy phần lớn dữ liệu và chia nó ra thành nhiều phần nhỏ hơn và lưu vào trong các biến, một ví dụ phổ biến nhất của token hóa là đọc file
+Token hóa là tiến trình lấy phần lớn dữ liệu và chia nó ra thành nhiều phần nhỏ hơn và lưu vào trong các biến, thường thấy nhất là chia chuỗi thành nhiều phần dựa vào dấu phẩy.
+
+Việc token hóa cần 2 thứ, một là mã nguồn, 2 là điều kiện để phân chia, ví dụ dấu , phân chia theo chữ số...
+
+Token hóa với String.split()
+
 
 
 
