@@ -102,5 +102,10 @@ Khi làm việc với ngày tháng và con số, ta sẽ sử dụng nhiều l�
 
 ## 4. Format
 
+### Token Hóa
+Token hóa là tiến trình lấy phần lớn dữ liệu và chia nó ra thành nhiều phần nhỏ hơn và lưu vào trong các biến, một ví dụ phổ biến nhất của token hóa là đọc file
+
+
+
 ### Format với `format()`
 Hai phương thức `format()` và `print()` hoạt động giống nhau (người ta đồn rằng `print()` được tạo ra để làm hài lòng những người lập trình C)
