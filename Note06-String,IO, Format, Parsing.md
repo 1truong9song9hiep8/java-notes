@@ -90,6 +90,13 @@ fw.close();
 **Sự tuần tự hóa không áp dụng cho các static member class**
 
 ## 4. Date, Numbers và Currency
+Java cung cấp một tợp hợp các class hỗ trợ làm việc với ngày tháng, số và tiền tệ. Date, Calendar, DateFormat, Locate là 4 class được sử dụng nhiều nhất.
+
+Khi làm việc với ngày tháng và con số, ta sẽ sử dụng nhiều lớp, điều quan trọng là kết hợp chúng như thế nào.
+
+![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/43de11b7-9555-49ba-a1e3-9fc54989cc2d)
+
+
 
 
 
