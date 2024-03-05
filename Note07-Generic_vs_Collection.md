@@ -9,7 +9,34 @@ Phương thức `equal()` sẽ kiểm tra giá trị của 2 biến có bằng n
 Nếu không overrrid lại hàm `equal()` các đối tượng sẽ không thành mảng băm. và các đối tượng sẽ không được so sánh bằng nhau
 
 
+Collections hold only Objects, but primitives can be autoboxed.
+❑ Iterate with the enhanced for, or with an Iterator via hasNext() & next().
+❑ hasNext() determines if more elements exist; the Iterator does NOT move.
+❑ next() returns the next element AND moves the Iterator forward.
+❑ To work correctly, a Map's keys must override equals() and hashCode().
+❑ Queues use offer() to add an element, poll() to remove the head of the
+queue, and peek() to look at the head of a queue.
+❑ As of Java 6 TreeSets and TreeMaps have new navigation methods like
+floor() and higher().
+❑ You can create/extend "backed" sub-copies of TreeSets and TreeMaps.
+Sorting and Searching Arrays and Lists (Objective 6.5)
+❑ Sorting can be in natural order, or via a Comparable or many Comparators.
+❑ Implement Comparable using compareTo(); provides only one sort order.
+❑ Create many Comparators to sort a class many ways; implement compare().
+❑ To be sorted and searched, a List's elements must be comparable.
+❑ To be searched, an array or List must first be sorted.
+Utility Classes: Collections and Arrays (Objective 6.5)
+❑ Both of these java.util classes provide
+ ❑ A sort() method. Sort using a Comparator or sort using natural order.
+ ❑ A binarySearch() method. Search a pre-sorted array or List.
+Two-Minute Drill 633
+634 Chapter 7: Generics and Collections
+❑ Arrays.asList() creates a List from an array and links them together.
+❑ Collections.reverse() reverses the order of elements in a List.
 
+Collections.reverseOrder() returns a Comparator that sorts in reverse.
+
+2 interface List và Set đều có hàm `toArray()` để tạo mảng từ collection. 
 
 
 # 2. Collections
