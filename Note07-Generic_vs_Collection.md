@@ -116,7 +116,7 @@ Những class liên quan đến Map đều **không** implement Collection inter
 
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/0a01351b-e420-4e39-8dc1-3e8b0b7b0673)
 
-# Sử dụng Collection Framewor
+# 3. Sử dụng Collection Framewor
 Mục tiêu:
 - Viết code sử dụng Navigableset và NavigableMap.
 - Sử dụng `java.util.Comparator` và `java.lang.Comparable` để tùy chỉnh việc sắp xếp phần tử trong list và array.
