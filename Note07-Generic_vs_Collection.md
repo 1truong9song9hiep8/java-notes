@@ -1,12 +1,18 @@
 # Generic vs Collection
-Generic là tính năng nổi bật nhất được giới thiệu ở Java 5.
-
-## `hashCode()` và `equal()`
+## 1. `hashCode()` và `equal()`
 Mặc định lớp Object là lớp cha của tất cả các lớp trong java, và bản thân lớp Object này chứa một số method mà ta hay gặp như toString(), hasCode() và equal()...
 
-toán tử `==` và hàm equal(): toán tử `==` so sánh các bit của đối tượng
+Toán tử `==` sẽ kiểm tra 2 biến có cùng tham chiếu đếm một đối tượng hay không (bằng cách so sánh từng bit).
 
-# Collections
+Phương thức `equal()` sẽ kiểm tra giá trị của 2 biến có bằng nhau hay không.
+
+Nếu không overrrid lại hàm `equal()` các đối tượng sẽ không thành mảng băm. và các đối tượng sẽ không được so sánh bằng nhau
+
+
+
+
+
+# 2. Collections
 Một số công việc mà bạn thường làm với collection: Thêm, xóa, tìm kiếm, truy xuất, duyệt phần tử.
 
 **Odered**: Một collection được gọi là *odered* khi mà các phần tử trong nó được xác định bằng các chỉ mục.
@@ -15,9 +21,6 @@ Một số công việc mà bạn thường làm với collection: Thêm, xóa, 
 
 
 Java cung cấp một bộ các interface, class, và thuật toán để lập trình viên dễ dàng làm việc với collection, được gọi là Collection Framework.
-
-
-
 ### List Interface
 List quan tâm đến index. List cung cấp các method làm việc với index.
 
@@ -128,6 +131,123 @@ Trong Java, Backed collection để chỉ những collection được liên kế
 Một số class trong gói java.util hỗ trợ backed collection bao gồm: **Collections**, **Arrays**, **List**, và **Set**, trong các class này sẽ có một số method sinh ra backed collection từ collection gốc.
 
 Một số lưu ý: bởi vì 1 list tham chiếu đến list gốc, nếu như bạn thay đổi phàn tử trong list gốc mà phạm vi của nó vượt ngoài list mới thì list mới vẫn sẽ không thay đổi
+
+
+## 4. Generic Type
+Có thể bạn đã biết, Java cho phép khai báo các collection mà không cần khai báo kiểu dữ liệu kèm theo.
+
+Một `ArrayList<Animal>` có thể chấp nhận các tham chiếu thuộc loại `Dog`, `Cat` hoặc bất kiểu dữ liệu nào là subtype của `Animal`(các lớp kế thừa hoặc triển khai).
+
+Khi sử dụng genereic collection, không cần thiết phải ép kiểu để lấy các phần tử (loại được khai báo) ra khỏi collection. Với các bộ non-generic collection, ép kiểu là cần thiết.
+```java
+List<String> gList = new ArrayList<String>();
+List list = new ArrayList();
+// more code
+String s = gList.get(0); // no cast needed
+String s = (String)list.get(0); // cast required
+```
+Một generic collection có thể được truyền vào một method mà nó nhận vào một non-generic collection, nhưng kết quả có thể rất tệ. Trình biên dịch không thể ngăn phương thức chèn sai kiểu vào bộ sưu tập an toàn loại trước đó.
+
+Thông tin về kiểu kiểu dữ liệu Generic không tồn tại lúc run-time, nó chỉ đảm bảo không lỗi trong quá trình biên dịch.
+
+Tính đa hình không được áp dụng cho generic collection. Tuy nhiên mảng thì có thể.
+```java
+class Parent { }
+class Child extends Parent { }
+List<Parent> myList = new ArrayList<Child>(); // error
+void foo(List<Animal> aList) { } // cannot take a List<Dog>
+List<Animal> bar() { } // cannot return a List<Dog>
+
+Parent[] myArray = new Child[3];
+Object[] myArray = new JButton[3]; // yes
+```
+Để thực hiện tính đa hình, phải thực hiện cú pháp sau
+```java
+void addD(List<Dog> d) {} // can take only <Dog>
+void addD(List<? extends Dog>) {} // take a <Dog> or <Beagle>
+```
+Khi sử dụng cú pháp đại diện `<?>` nó chỉ được gán không được truy cập hay sửa đổi
+
+Quy ước khai báo generic là sử dụng `E` cho collection và `T` cho mọi thứ khác.
+
+Một phương thức của class T phải khai báo kiểu T.
+```java
+public <T> void makeList(T t) { }
+// Ở đây hàm trả về void, nhưng phải khai báo T để sử dụng.
+```
+
+
+
+```java
+// Trước Java 5
+ArrayList myList = new ArrayList(); // nó gần như là ArrayList<Object> myList = new ArrayList<>();
+List myList = new ArrayList();
+```
+Các collection đó được gọi là non-generic collection, nó có thể chứa bất cứ thứ gì không phải là kiểu nguyên thủy. Điều này khá là khó chịu bởi chúng ta biết rằng Java rất nghiêm ngặt về kiểu dữ liệu, sẽ là một thảm họa nếu ta tính toán các collection mà nó có thể chứa string.
+
+Generic có thể đảm bảo kiểu dữ liệu mà bạn mong muốn nó sử dụng.
+
+cú pháp generic là đặt kiểu dữ liệu vào trong `<>`
+Vấn đề về đa hình sẽ xuất hiện
+
+sự kết hợp giữa generic collection và non-genenric? hẫy tương tượng bạn có một mảng genereic có kiểu integer, làm sao để đưa nó vào mảng không genereic
+
+xem kểu sau
+
+
+Khai báo generic
+E là viết tắt của Element, còn T dùng cho những thứ không phải collection.
+Make your own generic class:
+Ví dụ bạn muốn tạo một cửa hàng cho thuê đồ và bạn tạo một class như sau:
+```java
+public class Rental {
+ private List rentalPool;
+ private int maxNum;
+ public Rental(int maxNum, List rentalPool) {
+ this.maxNum = maxNum;
+ this.rentalPool = rentalPool;
+ }
+ public Object getRental() {
+ // blocks until there's something available
+ return rentalPool.get(0);
+ }
+ public void returnRental(Object o) {
+ rentalPool.add(o);
+ }
+}
+```
+Tiếp theo bạn muốn cho thuê xe, bạn sẽ viết 1 class kết thừa từ nó.
+```java
+public class CarRental extends Rental {
+    public CarRental(int maxNum, List<Car> rentalPool) {
+        super(maxNum, rentalPool);
+    }
+
+    public Car getRental() {
+        return (Car) super.getRental();
+    }
+
+    public void returnRental(Car c) {
+        super.returnRental(c);
+    }
+
+    public void returnRental(Object o) {
+        if (o instanceof Car) {
+            super.returnRental(o);
+        } else {
+            System.out.println("Cannot add a non-Car");
+            // probably throw an exception
+        }
+    }
+}
+```
+vấn đề xảy ra,
+
+
+Sau Java 5 bạn phải khai báo kiểu khi khai báo list trong Java, vậy các kỹ sư Java đã làm thế nào?
+
+
+
 
 Khi thêm/xóa phần tử, list mới sẽ báo lỗi, vì vậy hãy cẩn thận khi sử dụng các hàm 
 
