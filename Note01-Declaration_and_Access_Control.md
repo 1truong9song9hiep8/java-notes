@@ -1,8 +1,9 @@
-# NOTE01: Declaration and Access Control
+# NOTE 01: Declaration and Access Control
 Trong phần Declaration and Access Control, chúng ta sẽ tìm hiểu về cách đặt tên trong Java và các từ khóa để kiểm soát quyền truy cập như public, protected, private,..
 
 ## 1. Identifier
-Java có một số quy tắc (bắt buộc) trong việc đặt tên (áp dụng cho mọi thứ bất kể cả tên biến, tên hàm, tên lớp...).
+### Một số quy tắc và quy ước về định danh
+Java có một số quy tắc bắt buộc trong việc đặt tên. Các quy tắc này áp dụng cho mọi thứ bất kể cả tên biến, tên hàm, tên lớp....
 - Tên phải được bắt đầu bằng một ký tự hoặc `$` hoặc `_`, và không được bắt đầu bằng số.
 - Tên không được trùng với tên của các keyword, ví dụ: `int`, `const`, `class`,...
 - Java phân biệt chữ hoa và chữ thường, ABC sẽ khác aBC.
@@ -37,16 +38,25 @@ Nếu một file mà không có một public class thì tên file không cần t
 
 lệnh package phải dc khai báo trước import > class
 
+### Class Access Modifiers
+Java có 4 cấp độ truy cập là `public`, `protected`, `default`, `private` nhưng chỉ cung cấp 3 access modifier là `public`, `protected`, `private`.
+
+Các lớp chỉ có thể được gán là `public` hoặc `default`. Các class được gán là `public` sẽ được thấy bởi mọi class ở mọi package. Các class với cấp độ truy cập mặc định thì chỉ được thấy bởi những class trong cùng một package.
+
+Khả năng nhìn thấy của một lớp đề cập đến việc: tạo một instance, kế thừa từ nó, truy cập vào các biến và hàm của lớp đó.
+
+Một class cũng có thể được khai báo: final, abstract, or strictfp. 
+
+Một class không thể vừa là `final` vừa là `abstract`
+
 ### Access Modifier
 Java có 4 mức độ truy cập, nhưng chỉ cung cấp 3 quyền truy cập, quyền truy cập thứ 4 là quyền truy cập mặc định hoặc quyền truy cập gói.
 Sun khuyến khích bạn đặt tên gói ngược lại với tên miền, ví dụ abc.com -> com.abc..
 
 
-khi một class không khai báo access modifier thì class đó có quyền truy cập là default, và những class trong cùng package mới có thể thấy được, những class khác package sẽ không thể thấy được class đó
+ 
 
-một class cũng có thể được khai báo: final, abstract, or strictfp, 
-
-khi một class được khai báo là `final` thì các class khác sẽ không thể kế thừa từ nó, vì tính không kế  thừa nên nó khôngđược đánh giá cao bởi nó vi phạm đặc tính của OOP.
+khi một class được khai báo là `final` thì các class khác sẽ không thể kế thừa từ nó, vì tính không kế  thừa nên nó không được đánh giá cao bởi nó vi phạm đặc tính của OOP.
 
 
 Một abstract class được sinh ra chỉ để cho class khác kế thừa nó(ngược lại với final class), một abstract class không thể được khởi tạo. liên quan đến tính trừu tượng trong java, tính trừu tượng làm đơn giản hóa các đối tượng, dấu những hoạt động không cần thiết và chỉ hiển thị những thứ cần thiết. 
