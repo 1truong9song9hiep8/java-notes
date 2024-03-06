@@ -38,40 +38,41 @@ Một số đặc điểm của static nested class:
 
 # consum
 ## 1. Inner Classes
-❑ A "regular" inner class is declared inside the curly braces of another class, but outside any method or other code block.
-- Một inner class "thông thường" được khai báo bên trong class và bên ngoai bất cứ method nào.
-❑ An inner class is a full-fledged member of the enclosing (outer) class, so it
-can be marked with an access modifier as well as the abstract or final
-modifiers. (Never both abstract and final together— remember that
-abstract must be subclassed, whereas final cannot be subclassed).
-❑ An inner class instance shares a special relationship with an instance of the
-enclosing class. This relationship gives the inner class access to all of the
-outer class's members, including those marked private.
-❑ To instantiate an inner class, you must have a reference to an instance of the
-outer class.
-❑ From code within the enclosing class, you can instantiate the inner class
-using only the name of the inner class, as follows:
-MyInner mi = new MyInner();
-❑ From code outside the enclosing class's instance methods, you can
-instantiate the inner class only by using both the inner and outer class names,
-and a reference to the outer class as follows:
+Chúng ta có thể khai báo một class bên trong một class khác, các class đó được gọi là các inner class.
+
+Một inner class "thông thường" được khai báo bên trong class và bên ngoài bất cứ method hoặc khối mã nào.
+
+Một inner class cũng được xem là một class member của outer class, vì vậy nó có thể được đánh dấu bởi access modifier cũng như `final` hoặc `abstract`. Xin nhắc lại lần nữa là `final` và `abstract` không thể đi cùng nhau.
+
+Một thể hiện của lớp bên trong chia sẻ mối quan hệ đặc biệt với một thể hiện của lớp kèm theo. Mối quan hệ này cho phép lớp bên trong truy cập vào tất cả các thành viên của lớp bên ngoài, bao gồm cả những thành viên được đánh dấu là riêng tư.
+
+Để khởi tạo một inner class, bạn phải khởi tạo outer class trước.
+```java
 MyOuter mo = new MyOuter();
 MyOuter.MyInner inner = mo.new MyInner();
-❑ From code within the inner class, the keyword this holds a reference to
-the inner class instance. To reference the outer this (in other words, the
-instance of the outer class that this inner instance is tied to) precede the
-keyword this with the outer class name as follows: MyOuter.this;
-Method-Local Inner Classes
-❑ A method-local inner class is defined within a method of the enclosing class.
-❑ For the inner class to be used, you must instantiate it, and that instantiation
-must happen within the same method, but after the class definition code.
-❑ A method-local inner class cannot use variables declared within the method
-(including parameters) unless those variables are marked final.
-Two-Minute Drill 683
-✓
-❑ The only modifiers you can apply to a method-local inner class are abstract
-and final. (Never both at the same time, though.)
-Anonymous Inner Classes
+```
+Từ khóa `this` bên trong inner class để chỉ tham chiếu đến instance của inner class đó. Nếu muốn trỏ đến outer class thì ta phải Khai báo tên của outer class trước this, ví dụ: `var outer = OuterClass.this;`
+
+## Method-Local Inner Classes
+Một class cũng có thể được khai báo bên trong một method của một class khác, khi đó class đó gọi là **Method-local inner class**.
+
+Để sử dụng method-local inner class bạn phải khởi tạo chúng bên trong method, và đoạn code khởi tạo phải nằm sau đoạn code khai báo method-local inner class.
+```java
+public class OuterClass {
+    public void outerMethod() {
+        InnerClass inner = new InnerClass(); // LỖI: khởi tạo nằm trước khai báo
+        class InnerClass {
+            public void innerMethod() {
+            }
+        }
+        InnerClass inner = new InnerClass(); // khởi tạo phải nằm sau khai báo
+        inner.innerMethod();
+    }
+}
+```
+Các method-local inner class có thể truy cập và sử dụng các biến cục bộ (local variables) của phương thức nơi nó được khai báo, VỚI MỘT ĐIỀU KIỆN là biến đó phải là final hoặc giá trị của nó không bị gán lại.
+
+## Anonymous Inner Classes
 ❑ Anonymous inner classes have no name, and their type must be either a
 subclass of the named type or an implementer of the named interface.
 ❑ An anonymous inner class is always created as part of a statement; don't
