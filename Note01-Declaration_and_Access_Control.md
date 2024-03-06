@@ -3,25 +3,25 @@ Trong phần Declaration and Access Control, chúng ta sẽ tìm hiểu về cá
 
 ## 1. Identifier
 ### Một số quy tắc và quy ước về định danh
-Java có một số quy tắc bắt buộc trong việc đặt tên. Các quy tắc này áp dụng cho mọi thứ bất kể cả tên biến, tên hàm, tên lớp....
-- Tên phải được bắt đầu bằng một ký tự hoặc `$` hoặc `_`, và không được bắt đầu bằng số.
-- Tên không được trùng với tên của các keyword, ví dụ: `int`, `const`, `class`,...
-- Java phân biệt chữ hoa và chữ thường, ABC sẽ khác aBC.
-```java
-// Các tên hợp lệ
-int _a;
-int $c;
-int ______2_w;
-int _$;
-int this_is_a_very_detailed_name_for_an_identifier;
-
-// Các tên không hợp lệ
-int :b;
-int -d;
-int e#;
-int .f;
-int 7g;
-```
+- Java có một số quy tắc bắt buộc trong việc đặt tên. Các quy tắc này áp dụng cho mọi thứ bất kể cả tên biến, tên hàm, tên lớp....
+  - Tên phải được bắt đầu bằng một ký tự hoặc `$` hoặc `_`, và không được bắt đầu bằng số.
+  - Tên không được trùng với tên của các keyword, ví dụ: `int`, `const`, `class`,...
+  - Java phân biệt chữ hoa và chữ thường, ABC sẽ khác aBC.
+ ```java
+ // Các tên hợp lệ
+ int _a;
+ int $c;
+ int ______2_w;
+ int _$;
+ int this_is_a_very_detailed_name_for_an_identifier;
+ 
+ // Các tên không hợp lệ
+ int :b;
+ int -d;
+ int e#;
+ int .f;
+ int 7g;
+ ```
 Một số quy ước(không bắt buộc) về đặt tên mà Sun đưa ra và được mọi lập trình viên tuân theo:
 - Tên lớp (Classes) nên là danh từ và chữ cái đầu viết hoa, ví dụ: Dog, Account, PrintWriter.
 - Tên giao diện (Interfaces) nên là tính từ và chữ cái đầu viết hoa, ví dụ: Runnable, Serializable.
@@ -45,7 +45,7 @@ Các lớp chỉ có thể được gán là `public` hoặc `default`. Các cla
 
 Khả năng nhìn thấy của một lớp đề cập đến việc: tạo một instance, kế thừa từ nó, truy cập vào các biến và hàm của lớp đó.
 
-Một class cũng có thể được khai báo: final, abstract, or strictfp. 
+Một class cũng có thể được khai báo: final, abstract, or strictfp.
 
 Một class không thể vừa là `final` vừa là `abstract`
 
@@ -144,8 +144,84 @@ khai báo biến:
 
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/b5848035-6c59-49f1-9b0f-00dad2832140)
 
+### Interface
+- Interface định nghĩa những gì mà một class có thể làm
+- Interface chỉ có thể được khai báo là `public` hoặc `default`.
+- Một Interface hoàn toàn giống với một abstract class và nó được ngầm định là `abstract` dù bạn có khai báo hay không.
+❑ An interface can have only abstract methods, no concrete methods allowed.
+❑ Interface methods are by default public and abstract—explicit declaration
+of these modifiers is optional.
+
+- Các constant có thể được khai báo trong Interface, và chúng luôn được đánh dấu là `public static final` bất kể ta có khai báo rõ ràng hay không.
+- Khi một nonabstract class implement một interface thì:
+❑ A legal nonabstract implementing class has the following properties:
+ ❑ It provides concrete implementations for the interface's methods.
+ ❑ It must follow all legal override rules for the methods it implements.
+ ❑ It must not declare any new checked exceptions for an
+ implementation method.
+
+ ❑ It must not declare any checked exceptions that are broader than
+ the exceptions declared in the interface method.
+ ❑ It may declare runtime exceptions on any interface method
+ implementation regardless of the interface declaration.
+ ❑ It must maintain the exact signature (allowing for covariant returns)
+ and return type of the methods it implements (but does not have to
+ declare the exceptions of the interface).
+❑ A class implementing an interface can itself be abstract.
+❑ An abstract implementing class does not have to implement the interface methods (but the first concrete subclass must).
+- Một class chỉ có thể kế thừa 1 class nhưng lại có thể implement nhiều interface.
+- Một Interface không thể kế thừa một class, cũng như không thể implement class hoặc interface khác mà nó có thể kế thừa 1 hoặc nhiều interface.
+- Khi làm bài kiểm tra, hãy xác minh rằng các khai báo interface và class là hợp lệ trước khi xác minh logic mã khác.
+
 với các biến referrence; bạn chỉ có thể gán các access modifier và final cho nó + transitient, các keyword còn lại là không được phép.
 một hàm static không thể truy cập vào các static class member
+### Khai báo biến
+- Một biến có thể được khai báo với: `public`, `protected`, `private`, `static`, `transient`, `volatile`.
+- Một biến instance không thể được khai báo với: `abstract`, `synchronized`, `native`, or `strictfp`.
+- Một local variable có thể trùng tên với instance variable, kỹ thuật này gọi là "shadowing".
+- Một `final` variable không thể được gán giá trị 2 lần.
+- Một `final` variable phải được gán ngay lúc khởi tạo hoặc trong constructor.
+### Khai báo mảng
+- Mảng có thể chứa các object hoặc kiểu dữ liệu nguyên thủy, nhưng bản thân mảng luôn là một object.
+- Khi bạn khai báo một mảng, dấu `[]` có thể ở bên trái hoặc bên phải của mảng tên biến.
+  ```java
+  Dog [] dogs;
+  Cat cats[];
+  int x [];
+  ```
+- Việc đưa kích thước của mảng vào khai báo không bao giờ là hợp pháp.
+- Một mảng các đối tượng có thể chứa bất kỳ đối tượng có quan hệ **IS-A** (hoặc instanceof) kiểm tra kiểu khai báo của mảng. 
+  ```java
+  Animal [] animal;
+  animal[0] = new Dog(); // Hợp lệ nếu Dog kế thừa Animal
+  ```
+### Biến và Hàm Static
+- Các biến và hàm static không thuộc về bất cứ một instance nào của đối tượng.
+- Chúng ta có thể sử dụng các biến và hàm static mà không cần phải khởi tạo đối tượng.
+- Một hàm static không thể gọi một hàm non-static, nhưng có thể gọi ngược lại.
+  ```java
+  static void staticMethod() {
+        nonStaticMethod();
+    } // không hợp lệ, static method không thể gọi một non-static method
 
+    void nonStaticMethod() {
+        staticMethod();
+    }// hợp lệ, một non-static method có thể gọi một static method
+  ```
 
+### Enums
+- Một enum chỉ định một danh sách các giá trị không đổi.
+- enum KHÔNG phải là String hay int; kiểu của hằng số enum là enum kiểu. Ví dụ: MÙA HÈ và MÙA THU thuộc loại enum Season.
+- Một enum có thể được khai báo bên ngoài hoặc bên trong một lớp, nhưng KHÔNG được khai báo trong một phương thức.
+- Một enum được khai báo bên ngoài một lớp KHÔNG được đánh dấu là static, final, abstract, protected, private.
+- Enums có thể chứa các hàm tạo, phương thức, biến và thân lớp không đổi.
+- Hằng số enum có thể gửi đối số tới hàm tạo enum bằng cách sử dụng cú pháp BIG(8), trong đó chữ int 8 được truyền cho hàm tạo enum.
+- hàm tạo enum có thể có đối số và có thể bị quá tải.
+- hàm tạo enum KHÔNG BAO GIỜ có thể được gọi trực tiếp trong mã. Họ luôn luôn được gọi tự động khi một enum được khởi tạo.
+- Dấu chấm phẩy ở cuối câu khai báo enum là tùy chọn. Đây là những điều hợp pháp:
+```java
+enum Foo { MỘT, HAI, BA}
+enum Foo { MỘT, HAI, BA};
+```
+- MyEnum.values() trả về một mảng các giá trị của MyEnum.
 
