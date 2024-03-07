@@ -1,3 +1,4 @@
+# JAVA NOTE 02: OBJECT ORRENTATION
 ## Tính đóng gói (Encapsulation)
 Tính đóng gói trong Java thể hiện ở việc thiết lập các access modifier nhằm dấu những thứ không cần thiết, từ đó giúp người lập trình viên dấu những thông tin quan trọng và riêng tư trong ứng dụng.
 
