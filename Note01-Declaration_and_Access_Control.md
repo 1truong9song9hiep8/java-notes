@@ -1,7 +1,7 @@
 # NOTE 01: Declaration and Access Control
 Trong phần Declaration and Access Control, chúng ta sẽ tìm hiểu về cách đặt tên trong Java và các từ khóa để kiểm soát quyền truy cập như public, protected, private,..
 
-## 1. Identifier
+## 1. Các Quy Tắc Và Quy Ước Về Định Danh
 Java có một số quy tắc bắt buộc trong việc đặt tên. Các quy tắc này áp dụng cho mọi thứ bất kể cả tên biến, tên hàm, tên lớp....
 - Tên phải được bắt đầu bằng một ký tự hoặc `$` hoặc `_`, và không được bắt đầu bằng số.
 - Tên không được trùng với tên của các keyword, ví dụ: `int`, `const`, `class`,...
@@ -29,7 +29,7 @@ Nếu một file mà không có một public class thì tên file không cần t
 
 lệnh package phải dc khai báo trước import > class
 
-## 2. Declaration Rules
+## 2. Các Quy Tắc Khai Báo Class
 Một file chỉ có thể có duy nhất một public class.
 
 Một file mã nguồn chỉ có thể có một lớp public.
@@ -48,7 +48,6 @@ Một tập tin có thể có nhiều lớp không công khai.
 
 Các tập tin không có lớp công khai sẽ không có hạn chế về đặt tên.
 
-### 3. Class Access Modifiers
 Java có 4 cấp độ truy cập là `public`, `protected`, `default`, `private` nhưng chỉ cung cấp 3 access modifier là `public`, `protected`, `private`.
 
 Các lớp chỉ có thể được gán là `public` hoặc `default`. Các class được gán là `public` sẽ được thấy bởi mọi class ở mọi package. Các class với cấp độ truy cập mặc định thì chỉ được thấy bởi những class trong cùng một package.
@@ -75,32 +74,13 @@ Một abstract class được sinh ra chỉ để cho class khác kế thừa n�
 
 một method là abstract thì class đó phải là abstract
 
-### 4. Interface
-### Interface
+## 3. Các Quy Tắc Khai Báo Interface
 - Interface định nghĩa những gì mà một class có thể làm
 - Interface chỉ có thể được khai báo là `public` hoặc `default`.
 - Một Interface hoàn toàn giống với một abstract class và nó được ngầm định là `abstract` dù bạn có khai báo hay không.
-❑ An interface can have only abstract methods, no concrete methods allowed.
-❑ Interface methods are by default public and abstract—explicit declaration
-of these modifiers is optional.
 
 - Các constant có thể được khai báo trong Interface, và chúng luôn được đánh dấu là `public static final` bất kể ta có khai báo rõ ràng hay không.
 - Khi một nonabstract class implement một interface thì:
-❑ A legal nonabstract implementing class has the following properties:
- ❑ It provides concrete implementations for the interface's methods.
- ❑ It must follow all legal override rules for the methods it implements.
- ❑ It must not declare any new checked exceptions for an
- implementation method.
-
- ❑ It must not declare any checked exceptions that are broader than
- the exceptions declared in the interface method.
- ❑ It may declare runtime exceptions on any interface method
- implementation regardless of the interface declaration.
- ❑ It must maintain the exact signature (allowing for covariant returns)
- and return type of the methods it implements (but does not have to
- declare the exceptions of the interface).
-❑ A class implementing an interface can itself be abstract.
-❑ An abstract implementing class does not have to implement the interface methods (but the first concrete subclass must).
 - Một class chỉ có thể kế thừa 1 class nhưng lại có thể implement nhiều interface.
 - Một Interface không thể kế thừa một class, cũng như không thể implement class hoặc interface khác mà nó có thể kế thừa 1 hoặc nhiều interface.
 - Khi làm bài kiểm tra, hãy xác minh rằng các khai báo interface và class là hợp lệ trước khi xác minh logic mã khác.
@@ -127,36 +107,6 @@ method trong inteface không được là static
 bởi vì method trong interface được mặc định là absstract nên final, strif, native không được phép sử dụng.
 
 interface có thể kế thừa từ 1 interafce hoặc nhiều khác.
-
-## 5. Member Access Modifiers
-❑ Methods and instance (nonlocal) variables are known as "members."
-❑ Members can use all four access levels: public, protected, default, private.
-❑ Member access comes in two forms:
- ❑ Code in one class can access a member of another class.
- ❑ A subclass can inherit a member of its superclass.
-❑ If a class cannot be accessed, its members cannot be accessed.
-❑ Determine class visibility before determining member visibility.
-❑ public members can be accessed by all other classes, even in other packages.
-❑ If a superclass member is public, the subclass inherits it—regardless of package.
-❑ Members accessed without the dot operator (.) must belong to the same class.
-❑ this. always refers to the currently executing object.
-❑ this.aMethod() is the same as just invoking aMethod().
-❑ private members can be accessed only by code in the same class.
-❑ private members are not visible to subclasses, so private members cannot be inherited.
-❑ Default and protected members differ only when subclasses are involved:
- ❑ Default members can be accessed only by classes in the same package.
- ❑ protected members can be accessed by other classes in the same
- package, plus subclasses regardless of package.
- ❑ protected = package plus kids (kids meaning subclasses).
- ❑ For subclasses outside the package, the protected member can be
- accessed only through inheritance; a subclass outside the package cannot
- access a protected member by using a reference to a superclass instance
- (in other words, inheritance is the only mechanism for a subclass
- outside the package to access a protected member of its superclass).
- ❑ A protected member inherited by a subclass from another package is
- not accessible to any other class in the subclass package, except for the
- subclass' own subclasses.
-
 ### Class Member
 trong khi một class chỉ có thể sử dụng 2 trong 4 cấp độ truy cập (public hoặc default) thì các biến và hàm trong class có thể khai báo 4 cấp độ(public-protected-default-private).
 
@@ -216,38 +166,53 @@ khai báo biến:
 
 ![image](https://github.com/1truong9song9hiep8/java-notes/assets/101247928/b5848035-6c59-49f1-9b0f-00dad2832140)
 
+## 4. Một Số Quy Tắc Khai Báo Class Member
+Các method và instance variable được gọi là các class member. ngay cả khi ta khai báo một class bên trong một class thì nó vẫn được xem là class member.
+
+Trong khi class chỉ có thể sử dụng 2 access modifier là `public` hoặc `default` thì các class member có thể tất cả 4 mức độ `public`, `protected`, `default`, `private`.
+
+Khi một class không thể được truy cập thì mọi member của nó đều không được truy cập bất kể access modifier nào. Vậy nên phải đảm bảo class phải được nhìn thấy trước khi tính đến các member.
+
+public member có thể được truy cập bất kể package. và một class kế thừa nó sẽ kế thừa toàn bộ public member đó
+
+các private member chỉ có thể được nhìn thấy bởi các member khác bên trong cùng 1 class. các subclass không thể kế thừa các private member.
+
+các default và projected cơ bản là giống nhau, chỉ có điều protected được quản lý rông hơn = default + kế thừa.
+
+Các local variable không có access modifier, final là modifyer duy nhất được chấp nhận khi khai báo local variable. Giá trị của nó phải được khởi tạo.
+
+Final method không được ghi đè trong subclass.
+
+các abstract method có thể khai báo exception.
+
+synchronized được áp dụng cho các phương thức và khối {}, các synchronized method cugnx có thể được đánh dấu là final.
+
+bởi vì abstract method được override lại ở subclass nên nó phải: không được phép khai báo private hoặc final, 
+
+native chỉ được áp dụng cho method
+strictfp được áp dụng cho method và class.
+
+
+### phương thức với var-arg
+Kể từ Java 5, các phương thức có thể khai báo một tham số chấp nhận từ 0 đến nhiều đối số, được gọi là phương thức var-arg.
+
+Tham số var-arg được khai báo với tên kiểu... cú pháp; ví dụ: doStuff(int... x) { }
+
+Một phương thức var-arg chỉ có thể có một tham số var-arg.
+
+Trong các phương thức có tham số bình thường và var-arg, var-arg phải ở cuối cùng.
 
 ### Khai báo biến
-- Một biến có thể được khai báo với: `public`, `protected`, `private`, `static`, `transient`, `volatile`.
-- Một biến instance không thể được khai báo với: `abstract`, `synchronized`, `native`, or `strictfp`.
-- Một local variable có thể trùng tên với instance variable, kỹ thuật này gọi là "shadowing".
-- Một `final` variable không thể được gán giá trị 2 lần.
-- Một `final` variable phải được gán ngay lúc khởi tạo hoặc trong constructor.
+Một biến có thể được khai báo với: `public`, `protected`, `private`, `static`, `transient`, `volatile`.
 
-❑ Instance variables can
-❑ Have any access control
-❑ Be marked final or transient
-❑ Instance variables can't be abstract, synchronized, native, or strictfp.
-❑ It is legal to declare a local variable with the same name as an instance
-variable; this is called "shadowing."
-❑ final variables have the following properties:
- ❑ final variables cannot be reinitialized once assigned a value.
- ❑ final reference variables cannot refer to a different object once the
- object has been assigned to the final variable.
- ❑ final reference variables must be initialized before the constructor
- completes.
-❑ There is no such thing as a final object. An object reference marked final
-does not mean the object itself is immutable.
-❑ The transient modifier applies only to instance variables.
-❑ The volatile modifier applies only to instance variables.
-Array Declarations (Objective 1.3)
-❑ Arrays can hold primitives or objects, but the array itself is always an object.
-❑ When you declare an array, the brackets can be to the left or right of the
-variable name.
-❑ It is never legal to include the size of an array in the declaration.
-❑ An array of objects can hold any object that passes the IS-A (or instanceof)
-test for the declared type of the array. For example, if Horse extends Animal,
-then a Horse object can go into an Animal array.
+Một biến instance không thể được khai báo với: `abstract`, `synchronized`, `native`, or `strictfp`.
+
+Một local variable có thể trùng tên với instance variable, kỹ thuật này gọi là "shadowing".
+
+Một `final` variable không thể được gán giá trị 2 lần.
+
+Một `final` variable phải được gán ngay lúc khởi tạo hoặc trong constructor.
+
 ### Khai báo mảng
 - Mảng có thể chứa các object hoặc kiểu dữ liệu nguyên thủy, nhưng bản thân mảng luôn là một object.
 - Khi bạn khai báo một mảng, dấu `[]` có thể ở bên trái hoặc bên phải của mảng tên biến.
@@ -275,7 +240,6 @@ then a Horse object can go into an Animal array.
         staticMethod();
     }// hợp lệ, một non-static method có thể gọi một static method
   ```
-
 ### Enums
 Một enum chỉ định một danh sách các giá trị không đổi. Enum KHÔNG phải là String hay int; kiểu của hằng số enum là enum kiểu. Ví dụ: MÙA HÈ và MÙA THU thuộc loại enum Season.
 
@@ -296,41 +260,3 @@ enum Foo { MỘT, HAI, BA};
 ```
 - MyEnum.values() trả về một mảng các giá trị của MyEnum.
 
-//////////////
-
-
-
-## Local Variables
-❑ Local (method, automatic, or stack) variable declarations cannot have
-access modifiers.
-❑ final is the only modifier available to local variables.
-❑ Local variables don't get default values, so they must be initialized before use.
-Other Modifiers—Members (Objective 1.3)
-❑ final methods cannot be overridden in a subclass.
-❑ abstract methods are declared, with a signature, a return type, and
-an optional throws clause, but are not implemented.
-❑ abstract methods end in a semicolon—no curly braces.
-❑ Three ways to spot a non-abstract method:
- ❑ The method is not marked abstract.
- ❑ The method has curly braces.
- ❑ The method has code between the curly braces.
-❑ The first nonabstract (concrete) class to extend an abstract class must
-implement all of the abstract class' abstract methods.
-❑ The synchronized modifier applies only to methods and code blocks.
-❑ synchronized methods can have any access control and can also be marked final.
-❑ abstract methods must be implemented by a subclass, so they must be
-inheritable. For that reason:
- ❑ abstract methods cannot be private.
- ❑ abstract methods cannot be final.
-❑ The native modifier applies only to methods.
-❑ The strictfp modifier applies only to classes and methods.
-Methods with var-args (Objective 1.4)
-❑ As of Java 5, methods can declare a parameter that accepts from zero to
-many arguments, a so-called var-arg method.
-❑ A var-arg parameter is declared with the syntax type... name; for instance:
-doStuff(int... x) { }
-❑ A var-arg method can have only one var-arg parameter.
-❑ In methods with normal parameters and a var-arg, the var-arg must come last.
-
-
-## Một Số Quy Tắc Trong Khai Báo Các Class Member
