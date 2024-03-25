@@ -1,4 +1,4 @@
-# Generic vs Collection
+# Generic và Collection
 ## 1. `hashCode()` và `equal()`
 Mặc định lớp Object là lớp cha của tất cả các lớp trong java, và bản thân lớp Object này chứa một số method mà ta hay gặp như toString(), hasCode() và equal()...
 
