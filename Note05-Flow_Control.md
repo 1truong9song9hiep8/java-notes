@@ -1,5 +1,5 @@
 # Java Note05: Flow Control
-# Câu Lệnh If và Switch
+## 1. Câu Lệnh If và Switch
 Dấu ngoặc nhọn sau lệnh `if` là tùy chọn, nhưng vẫn khuyến khích đặt nó trong code của ban.
 ```java
 if(x>3)
@@ -73,7 +73,7 @@ không phải là mã trường hợp duy nhất chạy.
 
 
 
-## Vòng lặp
+## 2. Vòng lặp
 ### Vòng lặp while và `do-while`
 Vòng lặp while được dùng khi chúng ta không cần biết chính xác số lần lặp lại. Cú pháp của vòng lặp `while`.
 ```java
