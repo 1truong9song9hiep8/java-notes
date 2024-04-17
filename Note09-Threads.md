@@ -1,4 +1,19 @@
 # Threads
+Trong lập trình **thread** là một tiến trình xử lý tác vụ, những tác vụ này có thể là xử lý một phép toán hoặc xử lý một hàm...
+
+Java hỗ trợ lập trình đa luồng, cho phép chương trình sử dụng nhiều luồng song song. Điều này giúp tăng tốc độ xử lý và sử dụng bộ nhớ hiệu quả hơn. Tuy nhiên, lập trình đa luồng cũng khiến chương trình phức tạp hơn và đòi hỏi xử lý các vấn đề về tranh chấp bộ nhớ.
+
+Vòng đời của một thread gồm có các trạng thái sau:
+- new
+- active
+- waiting/block
+- timed waiting
+- terminated
+
+Trong Java, một thread được đại diện bởi một đối tượng của lớp Thread. Vậy nên để sử dụng một thread chúng ta có thể kế thừa class Thread hoặc triển khai interface Runnable
+
+
+
 ## 1. Defining, Instantiating, and Starting Threads
 Các thread có thể được tạo bằng cách kế thừa class Thread và ghi đè lại phương thức `public void run()`.
 
@@ -30,3 +45,6 @@ Deadlock có thể xảy ra khi một đối tượng bị khóa cố gắng tru
 
 
 Future ComplitableFuture, Callable
+
+# java Doc
+
