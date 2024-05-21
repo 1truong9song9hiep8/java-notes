@@ -9,3 +9,8 @@ Phạm vi của biến quyết định vị trí lưu trữ của nó trong bộ
 Các biến class, biến instance và array đều có giá trị mặc định: byte(0), short(0), int(0), long(0L), float(0.0f), double(0.0d), char('\u0000'), boolean(false), các biến tham chiếu(null).
 
 Các biến local không có giá trị mặc định và chúng cần phải được gán giá trị trước khi sử dụng.
+
+
+## Java is Strictly Pass by Value!
+
+
