@@ -12,5 +12,8 @@ Các biến local không có giá trị mặc định và chúng cần phải đ
 
 
 ## Java is Strictly Pass by Value!
+Java chỉ truyền tham trị (pass by value), không truyền tham số (pass by reference). Điều này có nghĩa là nó không làm thay đổi giá trị của biến truyền vào.
+
+
 
 
